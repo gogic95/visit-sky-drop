@@ -7,17 +7,30 @@ const visit = 'assets/visit.png';
 
 
 class Logo {
-    constructor(x, y){
+    constructor(x, y, logoNumber){
         this.x = x;
         this.y = y;
+        this.r = 16
+        switch(logoNumber){
+            case 1: {this.picture = loadImage(airbnb), this.points = -100}break;
+            case 2: {this.picture = loadImage(bookvisit), this.points = 100}break;
+            case 3: {this.picture = loadImage(booking), this.points = -200}break;
+            case 4: {this.picture = loadImage(citybreak), this.points = 100}break;
+            case 5: {this.picture = loadImage(iticket), this.points = 100}break;
+            case 6: {this.picture = loadImage(visit), this.points = 300}break;
+            default: return;
+        }
     }
 
     show(){
-        circle(this.x, this.y, 32)
+        circle(this.x, this.y, this.r*2);
+        imageMode(CENTER);
+        image(this.picture, this.x, this.y, 120, 140);
+
     }
 
     update(){
-        this.y = this.y + 1;
+        this.y = this.y + 5;
         this.x = this.x;
     }
 }

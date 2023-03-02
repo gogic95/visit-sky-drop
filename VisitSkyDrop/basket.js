@@ -12,4 +12,11 @@ class Basket{
         rect (this.x , this.y, this.w, this.h);
         noFill();
     }
+
+    catches (logo){
+        if(logo.y + logo.r >= this.y && logo.x >= this.x - this.w/2 && logo.x <= this.x + this.w/2){
+            return true;
+        }
+        return false;
+    }
 }
