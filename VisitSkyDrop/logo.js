@@ -25,7 +25,9 @@ class Logo {
     show(){
         circle(this.x, this.y, this.r*2);
         imageMode(CENTER);
+        fill(0,0,0,0);
         image(this.picture, this.x, this.y, this.picWidth, this.picHeight);
+        noFill();
 
     }
 

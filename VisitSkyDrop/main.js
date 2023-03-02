@@ -2,14 +2,17 @@ let logos = [];
 let basket;
 let brojac = 1;
 let score = 0;
+let goodSound;
+let badSound;
 
 function setup(){
   createCanvas(1500,600);
   
   logo = new Logo(100, 100);
   basket = new Basket(width/2, 100);
-
-
+  soundFormats('wav','mp3');
+  goodSound = loadSound('assets/dobarZvuk.wav');
+  badSound = loadSound('assets/losZvuk.mp3');
   basketImg = loadImage('assets/basket.png');
 }
 
@@ -30,6 +33,11 @@ function draw() {
 
     if(basket.catches(logos[i])){
       score += logos[i].points;
+      if(logos[i].points > 0){
+        goodSound.play();
+      }else{
+        badSound.play();
+      }
       //console.log(score);
       logos.splice(i,1);
     }
