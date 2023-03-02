@@ -12,12 +12,12 @@ class Logo {
         this.y = y;
         this.r = 16
         switch(logoNumber){
-            case 1: {this.picture = loadImage(airbnb), this.points = -100}break;
-            case 2: {this.picture = loadImage(bookvisit), this.points = 100}break;
-            case 3: {this.picture = loadImage(booking), this.points = -200}break;
-            case 4: {this.picture = loadImage(citybreak), this.points = 100}break;
-            case 5: {this.picture = loadImage(iticket), this.points = 100}break;
-            case 6: {this.picture = loadImage(visit), this.points = 300}break;
+            case 1: {this.picture = loadImage(airbnb), this.points = -100, this.picHeight = 100, this.picWidth = 100}break;
+            case 2: {this.picture = loadImage(bookvisit), this.points = 100, this.picHeight = 100, this.picWidth = 100}break;
+            case 3: {this.picture = loadImage(booking), this.points = -200, this.picHeight = 100, this.picWidth = 100}break;
+            case 4: {this.picture = loadImage(citybreak), this.points = 100, this.picHeight = 70, this.picWidth = 100}break;
+            case 5: {this.picture = loadImage(iticket), this.points = 100, this.picHeight = 50, this.picWidth = 100}break;
+            case 6: {this.picture = loadImage(visit), this.points = 300, this.picHeight = 100, this.picWidth = 100}break;
             default: return;
         }
     }
@@ -25,7 +25,7 @@ class Logo {
     show(){
         circle(this.x, this.y, this.r*2);
         imageMode(CENTER);
-        image(this.picture, this.x, this.y, 120, 140);
+        image(this.picture, this.x, this.y, this.picWidth, this.picHeight);
 
     }
 

@@ -1,6 +1,7 @@
 let logos = [];
 let basket;
 let brojac = 1;
+let score = 0;
 
 function setup(){
   createCanvas(1500,600);
@@ -15,9 +16,8 @@ function setup(){
 function draw() {
   background(220);
   brojac++;
-  console.log(brojac);
   if (brojac % 50 == 0){
-    logos.push( new Logo(random(width), random(-100, -20), Math.floor(random(1,7))));
+    logos.push( new Logo(random(55, width-55), random(-100, -20), Math.floor(random(1,7))));
   }
 
   for (let logo of logos){
@@ -29,15 +29,14 @@ function draw() {
   for (let i = logos.length - 1; i >= 0; i-- ){
 
     if(basket.catches(logos[i])){
-      console.log('uvatio');
+      score += logos[i].points;
+      //console.log(score);
       logos.splice(i,1);
     }
     else if(logos[i].y > height + logos[i].r){
       logos.splice(i,1);
     }
   }
-
-  console.log(logos.length);
 
   basket.x = mouseX;
   basket.show();
