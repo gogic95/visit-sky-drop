@@ -4,6 +4,32 @@ let brojac = 1;
 let score = 0;
 let goodSound;
 let badSound;
+let counterSpan = document.getElementById('score_counter');
+let alertSpan = document.getElementById('alertBox');
+let roundTime = 60;
+
+function updateScore(score) {
+  counterSpan.innerText = score;
+}
+
+function alert(score, x, y) {
+ 
+  alertSpan.style.top = `${y - 100}px`;
+  alertSpan.style.left = `${x - 100}px`;
+
+  if (score < 0) {
+    alertSpan.style.textShadow = '2px 2px 25px red';
+    alertSpan.innerText = `${score}`;
+  } else {
+    alertSpan.style.textShadow = '2px 2px 25px green';
+    alertSpan.innerText = `+${score}`;
+  }
+
+  alertSpan.classList.add('showAlert');
+  setTimeout(() => {
+    alertSpan.classList.remove('showAlert');
+  }, 1000)
+}
 
 function preload(){
   img = loadImage('assets/surface.png');
@@ -37,6 +63,7 @@ function draw() {
 
     if(basket.catches(logos[i])){
       score += logos[i].points;
+      alert(logos[i].points, logos[i].x, logos[i].y);
       if (score < 0) {
         score = 0;
       }
