@@ -5,6 +5,11 @@ let score = 0;
 let goodSound;
 let badSound;
 
+function preload(){
+  
+  img = loadImage('assets/surface.png');
+}
+
 function setup(){
   createCanvas(1500,600);
   
@@ -17,7 +22,8 @@ function setup(){
 }
 
 function draw() {
-  background(220);
+  imageMode(CENTER);
+  image(img, width/2, height / 2);
   brojac++;
   if (brojac % 50 == 0){
     logos.push( new Logo(random(55, width-55), random(-100, -20), Math.floor(random(1,7))));
@@ -26,7 +32,6 @@ function draw() {
   for (let logo of logos){
     logo.show();
     logo.update();
-    
   }
 
   for (let i = logos.length - 1; i >= 0; i-- ){
@@ -49,11 +54,9 @@ function draw() {
   basket.x = mouseX;
   basket.show();
 
-
  
    imageMode(CENTER);
    image(basketImg, mouseX, height - 80, 120, 140);
-
   
 }
 
