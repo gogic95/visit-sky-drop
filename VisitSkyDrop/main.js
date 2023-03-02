@@ -6,7 +6,6 @@ let goodSound;
 let badSound;
 
 function preload(){
-  
   img = loadImage('assets/surface.png');
 }
 
@@ -38,6 +37,10 @@ function draw() {
 
     if(basket.catches(logos[i])){
       score += logos[i].points;
+      if (score < 0) {
+        score = 0;
+      }
+      updateScore(score);
       if(logos[i].points > 0){
         goodSound.play();
       }else{
