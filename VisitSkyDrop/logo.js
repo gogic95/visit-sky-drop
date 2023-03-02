@@ -4,6 +4,7 @@ const booking = 'assets/booking.png';
 const citybreak = 'assets/citybreak.png';
 const iticket = 'assets/iticket.jpg';
 const visit = 'assets/visit.png';
+const balko = 'assets/balko.jpg';
 
 
 class Logo {
@@ -18,6 +19,7 @@ class Logo {
             case 4: {this.picture = loadImage(citybreak), this.points = 100, this.picHeight = 70, this.picWidth = 100}break;
             case 5: {this.picture = loadImage(iticket), this.points = 100, this.picHeight = 50, this.picWidth = 100}break;
             case 6: {this.picture = loadImage(visit), this.points = 300, this.picHeight = 100, this.picWidth = 100}break;
+            case 7: {this.picture = loadImage(balko), this.points = Math.round(random(-1000,1000)), this.picHeight = 125, this.picWidth = 125}break;
             default: return;
         }
     }
