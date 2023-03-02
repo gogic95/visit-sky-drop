@@ -31,8 +31,8 @@ class Logo {
 
     }
 
-    update(){
-        this.y = this.y + 5;
+    update(speed1){
+        this.y = this.y + speed1;
         this.x = this.x;
     }
 }

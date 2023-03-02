@@ -7,6 +7,7 @@ let badSound;
 let counterSpan = document.getElementById('score_counter');
 let alertSpan = document.getElementById('alertBox');
 let roundTime = 60;
+let speed1 = 5;
 
 function updateScore(score) {
   counterSpan.innerText = score;
@@ -33,6 +34,11 @@ function alert(score, x, y) {
 
 function preload(){
   img = loadImage('assets/surface.png');
+  
+  soundFormats('wav','mp3');
+  goodSound = loadSound('assets/dobarZvuk.wav');
+  badSound = loadSound('assets/losZvuk.mp3');
+  basketImg = loadImage('assets/basket.png');
 }
 
 function setup(){
@@ -40,10 +46,6 @@ function setup(){
   
   logo = new Logo(100, 100);
   basket = new Basket(width/2, 100);
-  soundFormats('wav','mp3');
-  goodSound = loadSound('assets/dobarZvuk.wav');
-  badSound = loadSound('assets/losZvuk.mp3');
-  basketImg = loadImage('assets/basket.png');
 }
 
 function draw() {
@@ -54,9 +56,19 @@ function draw() {
     logos.push( new Logo(random(55, width-55), random(-100, -20), Math.floor(random(1,7))));
   }
 
+  if (score <= 1000){
+    speed1 = 5;
+  }else if(score > 1000 && score <= 2000){
+    speed1 = 10;
+  }else{
+    speed1 = 15;
+  }
+
+  console.log('Speed: '+speed1 +' , Score: '+ score);
+
   for (let logo of logos){
     logo.show();
-    logo.update();
+    logo.update(speed1);
   }
 
   for (let i = logos.length - 1; i >= 0; i-- ){
