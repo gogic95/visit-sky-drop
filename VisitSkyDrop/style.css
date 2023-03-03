@@ -108,7 +108,7 @@ body {
 }
 
 .finalScore {
-  height: 400px;
+  height: auto;
   width: 800px;
   background-color: #1f2937;
   opacity: 1;
@@ -167,13 +167,17 @@ body {
   border-bottom: 1px solid white;
 }
 
-#profile {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+.profile {
+  width: 70px;
+  height: 70px;
+  border-radius: 70%;
 }
 
 .trofej {
   height: 100px;
   width: 100px;
+}
+
+#prizeText{
+  color: #fff;
 }
