@@ -11,6 +11,7 @@ class Logo {
     constructor(x, y, logoNumber){
         this.x = x;
         this.y = y;
+        this.yspeed = 0;
         this.r = 16
         switch(logoNumber){
             case 1: {this.picture = loadImage(airbnb), this.points = -100, this.picHeight = 100, this.picWidth = 100, this.id = logoNumber}break;
@@ -42,7 +43,8 @@ class Logo {
     }
 
     update(speed1){
-        this.y = this.y + speed1;
+        this.y = this.y + speed1 + this.yspeed;
+        this.yspeed = this.yspeed + 0.15;
         this.x = this.x;
     }
 }
