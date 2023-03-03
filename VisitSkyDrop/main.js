@@ -16,7 +16,7 @@ let timerDuration = 20; // In Seconds
 let startGame = false;
 
 function preload(){
-  img = loadImage('assets/surface.png');
+  img = loadImage('https://images.pexels.com/photos/139312/pexels-photo-139312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
   
   soundFormats('wav','mp3');
   goodSound = loadSound('assets/dobarZvuk.wav');
