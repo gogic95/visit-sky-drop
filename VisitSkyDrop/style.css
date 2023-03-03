@@ -14,6 +14,18 @@ body {
     z-index: 1;
 }
 
+.timer_counter {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    padding: 10px;
+    font-size: 20px;
+    color: #fff;
+    background: #000;
+    opacity: 0.5;
+    z-index: 1;
+}
+
 .alert_box {
   position: absolute;
   height: 50px;

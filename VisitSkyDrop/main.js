@@ -7,8 +7,23 @@ let badSound;
 let counterSpan = document.getElementById('score_counter');
 let alertSpan = document.getElementById('alertBox');
 let balkoSpan = document.getElementById('balko');
+let timerSpan = document.getElementById('timer_counter');
 let roundTime = 60;
 let speed1 = 5;
+let timerDuration = 120; // In Seconds
+
+function runTimer() {
+  let duration = timerDuration;
+  let timerInterval = setInterval(() => {
+    duration--;
+    timerSpan.innerText = duration;
+    if (duration == 0) {
+      clearInterval(timerInterval);
+      window.location.reload();
+    }
+  }, 1000);
+}
+
 
 function updateScore(score) {
   counterSpan.innerText = score;
@@ -51,10 +66,12 @@ function preload(){
 }
 
 function setup(){
-  createCanvas(1500,600);
+  const canvas = createCanvas(1500,600);
+  canvas.parent('myContainer');
   
   logo = new Logo(100, 100);
   basket = new Basket(width/2, 100);
+  runTimer();
 }
 
 function draw() {
