@@ -40,11 +40,11 @@ body {
 #startGame {
   margin: 0 auto;
   padding: 10px 50px;
-  border: 1px solid black;
-  background-color: transparent;
+  /* border: 1px solid black; */
+  /* background-color: transparent; */
   font-weight: 500;
   font-size: 20px;
-  color: #3a3a3a;
+  /* color: #3a3a3a; */
 }
 
 .score_counter {
@@ -231,5 +231,36 @@ body {
 .containerProfile li span{
   font-size: 15px;
   color: black;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 10px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.button3 {
+  background-color: rgb(238, 222, 188); 
+  color: black; 
+  border: 2px solid #f4b136;
+}
+
+.button3:hover {
+  background-color: #f49236;
+  color: white;
+}
+
+.button:active {
+  background-color: #8e863e;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
