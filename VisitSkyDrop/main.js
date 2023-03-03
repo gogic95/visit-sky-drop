@@ -15,7 +15,7 @@ let timerDuration = 20; // In Seconds
 let startGame = false;
 
 function preload(){
-  img = loadImage('https://images.pexels.com/photos/139312/pexels-photo-139312.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  img = loadImage('assets/pozadina.jpg');
   
   soundFormats('wav','mp3');
   goodSound = loadSound('assets/dobarZvuk.wav');
@@ -31,7 +31,7 @@ function setup(){
     runTimer();
   });
 
-  const canvas = createCanvas(1600,700);
+  const canvas = createCanvas(1600,800);
   canvas.parent('myContainer');
   
   logo = new Logo(100, 100);
@@ -52,7 +52,7 @@ function draw() {
       logos.push( new Logo(random(55, width-55), random(-100, -20), randomNumber));
     }
     
-    speed1 = 5 + Math.round((score + 1)/ 200);
+    speed1 = 5 + Math.round((score + 1)/ 300);
   
     for (let logo of logos){
       logo.show();
