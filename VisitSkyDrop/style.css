@@ -264,3 +264,14 @@ body {
   transform: translateY(4px);
 }
 
+.prizesText{
+  font-weight: 800 !important;
+  font-size: 30px !important;
+  color: #8e863e !important;
+}
+
+.pointsText{
+  font-weight: 800 !important;
+  font-size: 30px !important;
+  color: #8e863e !important;
+}
