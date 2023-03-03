@@ -51,12 +51,12 @@ body {
     position: absolute;
     top: 0px;
     right: 0;
-    width: 120px;
+    width: 140px;
     padding: 10px 20px;
     font-size: 20px;
     color: #fff;
     font-weight: 700;
-    background: #000;
+    background: #1f2937;
     opacity: .7;
     z-index: 1;
 }
@@ -65,12 +65,12 @@ body {
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 120px;
+    width: 140px;
     padding: 10px 20px;
     font-size: 20px;
     color: #fff;
     font-weight: 700;
-    background: #000;
+    background: #1f2937;
     opacity: .7;
     z-index: 1;
 }
@@ -111,7 +111,7 @@ body {
   height: auto;
   width: 800px;
   background-color: #1f2937;
-  opacity: 1;
+  opacity: .8;
   text-align: center;
   flex-direction: column;
   align-items: center;
@@ -181,3 +181,55 @@ body {
 #prizeText{
   color: #fff;
 }
+.container {
+	width: 400px;
+	height: auto;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.container li, .containerProfile li {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  max-width: 600px;
+}
+
+.container li img, .containerProfile li img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.container li span, .containerProfile li span {
+  font-size: 20px;
+  color: black;
+  font-weight: 800;
+}
+
+.containerProfile {
+  width: 400px;
+	height: auto;
+	position: absolute;
+	top: 0%;
+	right: 0%;
+	overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.containerProfile li img {
+  border-radius: 50%;
+}
+
+.containerProfile li span{
+  font-size: 15px;
+  color: black;
+}
+
