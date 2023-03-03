@@ -6,6 +6,7 @@ let goodSound;
 let badSound;
 let counterSpan = document.getElementById('score_counter');
 let alertSpan = document.getElementById('alertBox');
+let balkoSpan = document.getElementById('balko');
 let roundTime = 60;
 let speed1 = 5;
 
@@ -14,7 +15,6 @@ function updateScore(score) {
 }
 
 function alert(score, x, y) {
- 
   alertSpan.style.top = `${y - 100}px`;
   alertSpan.style.left = `${x - 100}px`;
 
@@ -29,6 +29,15 @@ function alert(score, x, y) {
   alertSpan.classList.add('showAlert');
   setTimeout(() => {
     alertSpan.classList.remove('showAlert');
+  }, 1000)
+}
+
+function balkoAlert() {
+  balkoSpan.style.top = `${height / 2 - 200}px`;
+  balkoSpan.style.left = `${width / 2 - 300}px`;
+  balkoSpan.classList.add('showBalko');
+  setTimeout(() => {
+    balkoSpan.classList.remove('showBalko');
   }, 1000)
 }
 
@@ -53,7 +62,12 @@ function draw() {
   image(img, width/2, height / 2);
   brojac++;
   if (brojac % 50 == 0){
-    logos.push( new Logo(random(55, width-55), random(-100, -20), Math.floor(random(1,8))));
+    const randomNumber = Math.floor(random(1,8));
+
+    if (randomNumber == 7){
+      balkoAlert();
+    }
+    logos.push( new Logo(random(55, width-55), random(-100, -20), randomNumber));
   }
 
   if (score <= 1000){

@@ -24,10 +24,24 @@ body {
   z-index: 2;
   text-align: center;
   line-height: 50px;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: 900;
 }
 
 .alert_box.showAlert {
+  display: block;
+}
+
+#balko {
+  display: none;
+  position: absolute;
+  color: white;
+  font-size: 50px;
+  text-shadow: 2px 2px 25px black;
+  text-align: center;
+  
+}
+
+#balko.showBalko {
   display: block;
 }
