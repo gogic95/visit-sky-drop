@@ -69,16 +69,8 @@ function draw() {
     }
     logos.push( new Logo(random(55, width-55), random(-100, -20), randomNumber));
   }
-
-  if (score <= 1000){
-    speed1 = 5;
-  }else if(score > 1000 && score <= 2000){
-    speed1 = 10;
-  }else{
-    speed1 = 15;
-  }
-
-  console.log('Speed: '+speed1 +' , Score: '+ score);
+  
+  speed1 = 5 + Math.round((score + 1)/ 200);
 
   for (let logo of logos){
     logo.show();
