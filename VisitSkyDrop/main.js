@@ -8,9 +8,87 @@ let counterSpan = document.getElementById('score_counter');
 let alertSpan = document.getElementById('alertBox');
 let balkoSpan = document.getElementById('balko');
 let timerSpan = document.getElementById('timer_counter');
+let startGameButton = document.getElementById('startGame');
+let container = document.getElementById('myContainer');
 let roundTime = 60;
 let speed1 = 5;
-let timerDuration = 120; // In Seconds
+let timerDuration = 20; // In Seconds
+let startGame = false;
+
+function preload(){
+  img = loadImage('assets/surface.png');
+  
+  soundFormats('wav','mp3');
+  goodSound = loadSound('assets/dobarZvuk.wav');
+  badSound = loadSound('assets/losZvuk.mp3');
+  basketImg = loadImage('assets/basket.png');
+}
+
+function setup(){
+  startGameButton.addEventListener('click', () => {
+    startGame = true;
+    startGameButton.style.display = 'none';
+    container.style.display = 'block';
+    runTimer();
+  });
+
+  const canvas = createCanvas(1000,500);
+  canvas.parent('myContainer');
+  
+  logo = new Logo(100, 100);
+  basket = new Basket(width/2, 100);
+}
+
+function draw() {
+  if (startGame) {
+    imageMode(CENTER);
+    image(img, width/2, height / 2);
+    brojac++;
+    if (brojac % 50 == 0){
+      const randomNumber = Math.floor(random(1,8));
+  
+      if (randomNumber == 7){
+        balkoAlert();
+      }
+      logos.push( new Logo(random(55, width-55), random(-100, -20), randomNumber));
+    }
+    
+    speed1 = 5 + Math.round((score + 1)/ 200);
+  
+    for (let logo of logos){
+      logo.show();
+      logo.update(speed1);
+    }
+  
+    for (let i = logos.length - 1; i >= 0; i-- ){
+  
+      if(basket.catches(logos[i])){
+        score += logos[i].points;
+        alert(logos[i].points, logos[i].x, logos[i].y);
+        if (score < 0) {
+          score = 0;
+        }
+        updateScore(score);
+        if(logos[i].points > 0){
+          goodSound.play();
+        }else{
+          badSound.play();
+        }
+        //console.log(score);
+        logos.splice(i,1);
+      }
+      else if(logos[i].y > height + logos[i].r){
+        logos.splice(i,1);
+      }
+    }
+  
+    basket.x = mouseX;
+    basket.show();
+
+    imageMode(CENTER);
+    image(basketImg, mouseX, height - 80, 120, 140);
+  }
+}
 
 function runTimer() {
   let duration = timerDuration;
@@ -54,75 +132,6 @@ function balkoAlert() {
   setTimeout(() => {
     balkoSpan.classList.remove('showBalko');
   }, 1000)
-}
-
-function preload(){
-  img = loadImage('assets/surface.png');
-  
-  soundFormats('wav','mp3');
-  goodSound = loadSound('assets/dobarZvuk.wav');
-  badSound = loadSound('assets/losZvuk.mp3');
-  basketImg = loadImage('assets/basket.png');
-}
-
-function setup(){
-  const canvas = createCanvas(1500,600);
-  canvas.parent('myContainer');
-  
-  logo = new Logo(100, 100);
-  basket = new Basket(width/2, 100);
-  runTimer();
-}
-
-function draw() {
-  imageMode(CENTER);
-  image(img, width/2, height / 2);
-  brojac++;
-  if (brojac % 50 == 0){
-    const randomNumber = Math.floor(random(1,8));
-
-    if (randomNumber == 7){
-      balkoAlert();
-    }
-    logos.push( new Logo(random(55, width-55), random(-100, -20), randomNumber));
-  }
-  
-  speed1 = 5 + Math.round((score + 1)/ 200);
-
-  for (let logo of logos){
-    logo.show();
-    logo.update(speed1);
-  }
-
-  for (let i = logos.length - 1; i >= 0; i-- ){
-
-    if(basket.catches(logos[i])){
-      score += logos[i].points;
-      alert(logos[i].points, logos[i].x, logos[i].y);
-      if (score < 0) {
-        score = 0;
-      }
-      updateScore(score);
-      if(logos[i].points > 0){
-        goodSound.play();
-      }else{
-        badSound.play();
-      }
-      //console.log(score);
-      logos.splice(i,1);
-    }
-    else if(logos[i].y > height + logos[i].r){
-      logos.splice(i,1);
-    }
-  }
-
-  basket.x = mouseX;
-  basket.show();
-
- 
-   imageMode(CENTER);
-   image(basketImg, mouseX, height - 80, 120, 140);
-  
 }
 
 document.addEventListener('loaded', function() {

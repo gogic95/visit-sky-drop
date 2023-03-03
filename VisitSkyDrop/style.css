@@ -1,14 +1,56 @@
-body {
-  background-color: #000;
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#gameContainer {
+  position: relative;
+  width: 1000px;
+  height: 500px;
+  overflow: hidden;
+  margin: 0 auto;
+  border: 1px solid black;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gameIntro {
+  text-align: center;
+}
+
+#myContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#startGame {
+  margin: 0 auto;
+  padding: 10px 50px;
+  border: 1px solid black;
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 20px;
+  color: #3a3a3a;
 }
 
 .score_counter {
     position: absolute;
-    top: 20px;
+    top: 0px;
     right: 0;
-    padding: 10px;
+    width: 120px;
+    padding: 10px 20px;
     font-size: 20px;
     color: #fff;
+    font-weight: 700;
     background: #000;
     opacity: 0.5;
     z-index: 1;
@@ -16,11 +58,13 @@ body {
 
 .timer_counter {
     position: absolute;
-    top: 20px;
-    left: 30px;
-    padding: 10px;
+    top: 0px;
+    left: 0px;
+    width: 120px;
+    padding: 10px 20px;
     font-size: 20px;
     color: #fff;
+    font-weight: 700;
     background: #000;
     opacity: 0.5;
     z-index: 1;
