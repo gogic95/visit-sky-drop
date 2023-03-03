@@ -16,6 +16,11 @@ const scoreSpan = document.getElementById('finalScoreSpan');
 let speed1 = 5;
 let timerDuration = 20; // In Seconds
 let startGame = false;
+let jockeImg = 'assets/jocke.jpg';
+let thibaultImg = 'assets/thibault.jpg';
+let adamImg = 'assets/adam.jpg';
+let filipImg = 'assets/filip.jpg';
+let jamesImg = 'assets/james.png';
 
 function preload(){
   img = loadImage('assets/pozadina.jpg');
@@ -24,10 +29,7 @@ function preload(){
   goodSound = loadSound('assets/dobarZvuk.wav');
   badSound = loadSound('assets/losZvuk.mp3');
   basketImg = loadImage('assets/basket.png');
-  jockeImg = loadImage('assets/jocke.jpg');
-  thibaultImg = loadImage('assets/thibault.jpg');
-  adamImg = loadImage('assets/adam.jpg');
-  filipImg = loadImage('assets/filip.jpg');
+
 }
 
 function setup(){
@@ -105,8 +107,41 @@ function draw() {
   }
 }
 
+const prizes = ['Dinner with GameDev pr0s! Team FA', '2 hours meeting with J4m3s or Th1b4ult', '5 min huddle with J0ck3'];
+
 function gameEnd() {
   noLoop();
+
+  const profileImg = document.getElementById('profile');
+  const prizeText = document.getElementById('prizeText');
+  const imgParent = document.getElementById('profileIconWrapper');
+  
+  if(imgParent.childNodes.length > 2){
+    imgParent.removeChild(imgParent.childNodes[2]);
+  }
+
+  if(score < 1000){
+    profileImg.src = adamImg;
+    let secondImg = document.createElement('img');
+    secondImg.src = filipImg;
+    secondImg.classList.add('profile');
+    imgParent.appendChild(secondImg);
+    prizeText.innerText = prizes[0];  
+
+  }
+  else if(score >=1000 && score < 2000) {
+    profileImg.src = thibaultImg;
+    let secondImg = document.createElement('img');
+    secondImg.src = jamesImg;
+    secondImg.classList.add('profile');
+    imgParent.appendChild(secondImg);
+    prizeText.innerText = prizes[1];
+  } 
+  else {
+    profileImg.src = jockeImg;
+    prizeText.innerText = prizes[2];
+  }
+
   scoreSpan.innerText = score;
   finalScore.style.display = 'flex';
 }
