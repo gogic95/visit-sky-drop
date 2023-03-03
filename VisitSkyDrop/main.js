@@ -10,7 +10,6 @@ let balkoSpan = document.getElementById('balko');
 let timerSpan = document.getElementById('timer_counter');
 let startGameButton = document.getElementById('startGame');
 let container = document.getElementById('myContainer');
-let roundTime = 60;
 let speed1 = 5;
 let timerDuration = 20; // In Seconds
 let startGame = false;
@@ -32,7 +31,7 @@ function setup(){
     runTimer();
   });
 
-  const canvas = createCanvas(1000,500);
+  const canvas = createCanvas(1600,700);
   canvas.parent('myContainer');
   
   logo = new Logo(100, 100);
