@@ -10,6 +10,9 @@ let balkoSpan = document.getElementById('balko');
 let timerSpan = document.getElementById('timer_counter');
 let startGameButton = document.getElementById('startGame');
 let container = document.getElementById('myContainer');
+let finalScore = document.getElementById('finalScore');
+let restarGameButton = document.getElementById('restartGame');
+const scoreSpan = document.getElementById('finalScoreSpan');
 let speed1 = 5;
 let timerDuration = 20; // In Seconds
 let startGame = false;
@@ -33,9 +36,20 @@ function setup(){
 
   const canvas = createCanvas(1600,800);
   canvas.parent('myContainer');
-  
   logo = new Logo(100, 100);
   basket = new Basket(width/2, 100);
+}
+
+const resetGame = () => {
+  logos = [];
+  brojac = 1;
+  score = 0;
+  speed1 = 5;
+  timerDuration = 20;
+
+  updateScore(score);
+  runTimer();
+  loop();
 }
 
 function draw() {
@@ -89,6 +103,12 @@ function draw() {
   }
 }
 
+function gameEnd() {
+  noLoop();
+  scoreSpan.innerText = score;
+  finalScore.style.display = 'flex';
+}
+
 function runTimer() {
   let duration = timerDuration;
   let timerInterval = setInterval(() => {
@@ -96,7 +116,7 @@ function runTimer() {
     timerSpan.innerText = duration;
     if (duration == 0) {
       clearInterval(timerInterval);
-      window.location.reload();
+      gameEnd();
     }
   }, 1000);
 }
@@ -135,4 +155,9 @@ function balkoAlert() {
 
 document.addEventListener('loaded', function() {
   setup();
+});
+
+restarGameButton.addEventListener('click', () => {
+  finalScore.style.display = 'none';
+  resetGame();
 });
