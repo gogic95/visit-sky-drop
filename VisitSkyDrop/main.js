@@ -21,6 +21,10 @@ function preload(){
   goodSound = loadSound('assets/dobarZvuk.wav');
   badSound = loadSound('assets/losZvuk.mp3');
   basketImg = loadImage('assets/basket.png');
+  jockeImg = loadImage('assets/jocke.jpg');
+  thibaultImg = loadImage('assets/thibault.jpg');
+  adamImg = loadImage('assets/adam.jpg');
+  filipImg = loadImage('assets/filip.jpg');
 }
 
 function setup(){
