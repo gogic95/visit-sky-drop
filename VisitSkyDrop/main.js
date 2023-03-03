@@ -48,8 +48,6 @@ const resetGame = () => {
   logos = [];
   brojac = 1;
   score = 0;
-  speed1 = 5;
-  timerDuration = 20;
 
   updateScore(score);
   runTimer();

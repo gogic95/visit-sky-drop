@@ -1,5 +1,4 @@
 body {
-	background: #1f2937;
 	font-family: verdana, sans-serif;
 }
 
@@ -123,9 +122,12 @@ body {
   transform: translate(-50%, -50%);
   z-index: 10;
   display: none;
+  padding: 20px 20px;
 }
 .scorebox {
   margin-bottom: 30px;
+  display: flex;
+  align-items: center;
 }
 .finalScore h1 {
   color: white;
@@ -133,9 +135,8 @@ body {
 }
 
 #finalScoreSpan {
-  font-weight: 400;
+  font-weight: 800;
   font-size: 80px;
-  background: #000;
   color: #f94f6d;
   min-width: 205px;
   padding: 16px 16px;
@@ -170,4 +171,9 @@ body {
   width: 30px;
   height: 30px;
   border-radius: 50%;
+}
+
+.trofej {
+  height: 100px;
+  width: 100px;
 }
